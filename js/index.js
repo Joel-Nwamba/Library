@@ -8,6 +8,7 @@ const bookContainer = document.getElementById("book-container");
 
 
 
+
 class Book {
     constructor(title, author, page) {
         this.title = title,
@@ -35,22 +36,22 @@ function addBookToLibrary() {
         const groupBooks = document.createElement("div");
         const title = document.createElement("p");
         const author = document.createElement("p");
-        const page = document.createElement("p");
+        const pages = document.createElement("p");
         // Add class 
-        groupBooks.classList.add("group-books")
+        groupBooks.classList.add("group-books");
         title.classList.add("title-book");
         author.classList.add("author-book");
-        page.classList.add("page-number");
+        pages.classList.add("page-number");
         // Append child
+        bookContainer.appendChild(groupBooks);
         groupBooks.appendChild(title);
         groupBooks.appendChild(author);
-        groupBooks.appendChild(page);
-        bookContainer.appendChild(groupBooks);
-
+        groupBooks.appendChild(pages);
+        groupBooks.style.backgroundColor = "red";
     }
 } 
 
-console.log(addBookToLibrary())
+addBookToLibrary()
 
 
 
