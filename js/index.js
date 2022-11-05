@@ -4,6 +4,7 @@ const titleBook = document.getElementById("title");
 const authorBook = document.getElementById("author");
 const statusBook = document.getElementById("status");
 const submit = document.getElementById("submit");
+const bookContainer = document.getElementById("book-container");
 
 
 
@@ -29,12 +30,27 @@ submit.addEventListener("click", function(event) {
 })
 
 function addBookToLibrary() {
-    for(let i = 0; i < myLibrary.length; i++) {
-        const newBookAdded = new Book(titleBook.value, authorBook.value, statusBook.value);
-        myLibrary[i].push(newBookAdded);
-    }
+    for(let i=0; i < myLibrary.length; i++ ) {
+        // Create new tags
+        const groupBooks = document.createElement("div");
+        const title = document.createElement("p");
+        const author = document.createElement("p");
+        const page = document.createElement("p");
+        // Add class 
+        groupBooks.classList.add("group-books")
+        title.classList.add("title-book");
+        author.classList.add("author-book");
+        page.classList.add("page-number");
+        // Append child
+        groupBooks.appendChild(title);
+        groupBooks.appendChild(author);
+        groupBooks.appendChild(page);
+        bookContainer.appendChild(groupBooks);
 
-}
+    }
+} 
+
+console.log(addBookToLibrary())
 
 
 
