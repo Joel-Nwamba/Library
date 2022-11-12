@@ -1,55 +1,38 @@
-let myLibrary = [];
-
-const titleBook = document.getElementById("title");
-const authorBook = document.getElementById("author");
-const statusBook = document.getElementById("status");
+let libraryBook = [];
 const submit = document.getElementById("submit");
 const bookContainer = document.getElementById("book-container");
+const form = document.getElementById("form-container")
 
+// title.value;
+// author.value;
+// pages.value;
 
 
 
 class Book {
-    constructor(title, author, page) {
+    constructor(title, author, pages) {
         this.title = title,
         this.author = author,
-        this.page = page
+        this.pages = pages
     }
 }
 
-submit.addEventListener("click", function(event) {
-    if(titleBook.value === "" || authorBook === "" || statusBook.value === "") {
-        return;
-    }
-    if(titleBook.value && authorBook.value && statusBook.value) {
-        addBookToLibrary()
-        event.preventDefault()
-    }
-    titleBook.value = ""
-    authorBook.value = ""
-    statusBook.value = ""
-})
-
 function addBookToLibrary() {
-    for(let i=0; i < myLibrary.length; i++ ) {
-        // Create new tags
-        const groupBooks = document.createElement("div");
-        const title = document.createElement("p");
-        const author = document.createElement("p");
-        const pages = document.createElement("p");
-        // Add class 
-        groupBooks.classList.add("group-books");
-        title.classList.add("title-book");
-        author.classList.add("author-book");
-        pages.classList.add("page-number");
-        // Append child
-        bookContainer.appendChild(groupBooks);
-        groupBooks.appendChild(title);
-        groupBooks.appendChild(author);
-        groupBooks.appendChild(pages);
-        groupBooks.style.backgroundColor = "red";
-    }
-} 
+    // Add coresponding values for uses input
+    const titleBook = document.getElementById("title").value;
+    const authorBook = document.getElementById("author").value;
+    const pageNumber = document.getElementById("pages").value;
+    // The users input value
+    const newBook = new Book(titleBook, authorBook, pageNumber);
+    // Push the user input to the libraryBook
+    libraryBook.push(newBook);
+    console.log(libraryBook);
+}
+
+submit.addEventListener("submit", function(e) {
+    e.preventDefault();
+    addBookToLibrary();
+});
 
 addBookToLibrary()
 
