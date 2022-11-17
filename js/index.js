@@ -1,6 +1,5 @@
 let libraryBook = [];
 const submit = document.getElementById("submit");
-const bookContainer = document.getElementById("book-container");
 const form = document.getElementById("form-container")
 
 // title.value;
@@ -20,37 +19,24 @@ class Book {
 
 // display library book
 function displayBook() {
-        const bookGroup = document.createElement("div");
-        const title = document.createElement("h1");
-        title.textContent = "Title";
-        const author = document.createElement("h1");
-        author.textContent = "Author";
-        const page = document.createElement("h1");
-        page.textContent = "Page";
-
-        for(let i = 0; i < libraryBook.length; i++) {
+    const bookContainer = document.getElementById("book-container");
+        for(let i = 0; i < libraryBook.length; i ++) {
+            const bookGroups = document.createElement("div");
+            bookGroups.classList.add("book-groups");
+            bookContainer.appendChild(bookGroups);
+            // Title of book
             const titleOfBook = document.createElement("p");
             titleOfBook.textContent = libraryBook[i].titleBook;
+            bookGroups.appendChild(titleOfBook);
+            // Author
             const authorOfBook = document.createElement("p");
-            authorOfBook.textContent = libraryBook[i].authorBook
-            const pageOfBook = document.createElement("p");
-            pageOfBook.textContent = libraryBook[i].pageNumber
-            // Create class name
-            bookGroup.classList.add("book-group");
-            title.classList.add("title-book");
-            author.classList.add("author-book");
-            page.classList.add("page-book");
-            titleOfBook.classList.add("title-of-book");
-            authorOfBook.classList.add("author-of-book");
-            pageOfBook.classList.add("page-of-book");
-            // Append child
-            bookGroup.appendChild(title);
-            bookGroup.appendChild(author);
-            bookGroup.appendChild(page);
-            bookGroup.appendChild(titleOfBook);
-            bookGroup.appendChild(authorOfBook);
-            bookGroup.appendChild(pageOfBook);
-            bookContainer.appendChild(bookGroup);
+            authorOfBook.textContent = libraryBook[i].authorBook;
+            bookGroups.appendChild(authorOfBook);
+            // Pages
+            const numberOfPages = document.createElement("p");
+            numberOfPages.textContent = libraryBook[i].pageNumber;
+            bookGroups.appendChild(numberOfPages);
+            
         }
     }
 
@@ -82,8 +68,8 @@ function clearInput() {
 form.addEventListener("submit", function(e) {
     e.preventDefault();
     addBookToLibrary();
-    clearInput();
     displayBook();
+    clearInput();
 });
 
 
