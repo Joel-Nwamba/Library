@@ -12,38 +12,20 @@ class Book {
 
 // display library book
 function displayBook() {
-    // for(let i = 0; i < libraryBook.length; i++) {
-    //     const bookContainer = document.getElementById("book-container");
-    //     // Title of book
-    //     const titleOfBook = document.createElement("p");
-    //     titleOfBook.textContent = libraryBook[i].title;
-    //     titleOfBook.classList.add("title-of-book")
-    //     bookContainer.appendChild(titleOfBook);
-    //     // Author
-    //     const authorOfBook = document.createElement("p");
-    //     authorOfBook.textContent = libraryBook[i].author;
-    //     authorOfBook.classList.add("author-of-book");
-    //     bookContainer.appendChild(authorOfBook);
-    //     // Pages
-    //     const numberOfPages = document.createElement("p");
-    //     numberOfPages.textContent = libraryBook[i].pages;
-    //     numberOfPages.classList.add("number-of-pages");
-    //     bookContainer.appendChild(numberOfPages);
-    // }
     const bookContainer = document.getElementById("book-container");
     // Title of book
     const titleOfBook = document.createElement("p");
-    titleOfBook.textContent = libraryBook[0].titleBook
+    titleOfBook.textContent = libraryBook[0].title
     titleOfBook.classList.add("title-of-book")
     bookContainer.appendChild(titleOfBook);
     // Author
     const authorOfBook = document.createElement("p");
-    authorOfBook.textContent = libraryBook[2].author;
+    authorOfBook.textContent = libraryBook[1].author;
     authorOfBook.classList.add("author-of-book");
     bookContainer.appendChild(authorOfBook);
     // Pages
     const numberOfPages = document.createElement("p");
-    numberOfPages.textContent = libraryBook[3].pages;
+    numberOfPages.textContent = libraryBook[2].pages;
     numberOfPages.classList.add("number-of-pages");
     bookContainer.appendChild(numberOfPages);
             
