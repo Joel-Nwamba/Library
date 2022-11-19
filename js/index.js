@@ -11,21 +11,22 @@ class Book {
 
 
 // display library book
+// myLibrary[myLibrary.length - 1].title
 function displayBook() {
     const bookContainer = document.getElementById("book-container");
     // Title of book
     const titleOfBook = document.createElement("p");
-    titleOfBook.textContent = libraryBook[0].title
+    titleOfBook.textContent = libraryBook[libraryBook.length -1].title;
     titleOfBook.classList.add("title-of-book")
     bookContainer.appendChild(titleOfBook);
     // Author
     const authorOfBook = document.createElement("p");
-    authorOfBook.textContent = libraryBook[1].author;
+    authorOfBook.textContent = libraryBook[libraryBook.lenght -1].author;
     authorOfBook.classList.add("author-of-book");
     bookContainer.appendChild(authorOfBook);
     // Pages
     const numberOfPages = document.createElement("p");
-    numberOfPages.textContent = libraryBook[2].pages;
+    numberOfPages.textContent = libraryBook[libraryBook.length -1].pages;
     numberOfPages.classList.add("number-of-pages");
     bookContainer.appendChild(numberOfPages);
             
@@ -47,20 +48,20 @@ function addBookToLibrary() {
 }
 
 
-function clearInput() {
-    const titleBook = document.getElementById("title");
-    const authorBook = document.getElementById("author");
-    const pageNumber = document.getElementById("pages");
-    titleBook.value = "";
-    authorBook.value = "";
-    pageNumber.value = "";
-}
+// function clearInput() {
+//     const titleBook = document.getElementById("title");
+//     const authorBook = document.getElementById("author");
+//     const pageNumber = document.getElementById("pages");
+//     titleBook.value = "";
+//     authorBook.value = "";
+//     pageNumber.value = "";
+// }
 
 form.addEventListener("submit", function(e) {
     e.preventDefault();
     addBookToLibrary();
     displayBook();
-    clearInput();
+    form.reset();
 });
 
 
