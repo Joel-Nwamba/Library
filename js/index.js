@@ -1,34 +1,64 @@
 let libraryBook = [];
-const form = document.getElementById("form-container")
+const form = document.getElementById("form-container");
 
 class Book {
-    constructor(title, author, pages) {
+    constructor(title, author, pages, read) {
         this.title = title,
         this.author = author,
-        this.pages = pages
+        this.pages = pages,
+        this.read = read
     }
+
 }
 
 
-// display library book
-// myLibrary[myLibrary.length - 1].title
 function displayBook() {
     const bookContainer = document.getElementById("book-container");
+    const bookInformation = document.createElement("div");
+    bookInformation.classList.add("book-information");
+    bookContainer.appendChild(bookInformation);
     // Title of book
     const titleOfBook = document.createElement("p");
     titleOfBook.textContent = libraryBook[libraryBook.length -1].title;
     titleOfBook.classList.add("title-of-book")
-    bookContainer.appendChild(titleOfBook);
+    bookInformation.appendChild(titleOfBook);
     // Author
     const authorOfBook = document.createElement("p");
-    authorOfBook.textContent = libraryBook[libraryBook.lenght -1].author;
+    authorOfBook.textContent = libraryBook[libraryBook.length -1].author;
     authorOfBook.classList.add("author-of-book");
-    bookContainer.appendChild(authorOfBook);
+    bookInformation.appendChild(authorOfBook);
     // Pages
     const numberOfPages = document.createElement("p");
     numberOfPages.textContent = libraryBook[libraryBook.length -1].pages;
     numberOfPages.classList.add("number-of-pages");
-    bookContainer.appendChild(numberOfPages);
+    bookInformation.appendChild(numberOfPages);
+    // Read button
+    const readButton = document.createElement("button");
+    readButton.classList.add("read-btn");
+    readButton.textContent = "read"
+    bookInformation.appendChild(readButton);
+    // if condition of red or unread book
+        if(libraryBook[libraryBook.length -1].read === true) {
+            readButton.textContent = "read";
+            readButton.style.backgroundColor = "green";
+        } else if(libraryBook[libraryBook.length -1].read === false) {
+            readButton.textContent = "unread";
+            readButton.style.backgroundColor = "white";
+        }
+        // Event listener
+        readButton.addEventListener("click", function() {
+            console.log("click me!")
+        })
+    // create delete button
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-btn");
+    // create text to appear on button
+    const text = document.createTextNode("delete");
+    deleteButton.appendChild(text);
+    bookInformation.appendChild(deleteButton);
+    deleteButton.addEventListener("click", function() {
+        bookContainer.removeChild(bookInformation);
+    })
             
     }
 
@@ -37,25 +67,16 @@ function addBookToLibrary() {
     // Add coresponding values for uses input
     const titleBook = document.getElementById("title").value;
     const authorBook = document.getElementById("author").value;
+    // console.log(authorBook)
     const pageNumber = document.getElementById("pages").value;
+    const bookRead = document.getElementById("book-read").checked
     // The users input value
-    const newBook = new Book(titleBook, authorBook, pageNumber);
+    const newBook = new Book(titleBook, authorBook, pageNumber, bookRead);
     // Push the user input to the libraryBook
     libraryBook.push(newBook);
     console.log(libraryBook);
-    
-
 }
 
-
-// function clearInput() {
-//     const titleBook = document.getElementById("title");
-//     const authorBook = document.getElementById("author");
-//     const pageNumber = document.getElementById("pages");
-//     titleBook.value = "";
-//     authorBook.value = "";
-//     pageNumber.value = "";
-// }
 
 form.addEventListener("submit", function(e) {
     e.preventDefault();
