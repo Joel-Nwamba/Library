@@ -4,11 +4,10 @@ const form = document.getElementById("form-container");
 class Book {
     constructor(title, author, pages, read) {
         this.title = title,
-        this.author = author,
-        this.pages = pages,
-        this.read = read
+            this.author = author,
+            this.pages = pages,
+            this.read = read;
     }
-
 }
 
 
@@ -42,13 +41,31 @@ function displayBook() {
             readButton.textContent = "read";
             readButton.style.backgroundColor = "green";
         } else if(libraryBook[libraryBook.length -1].read === false) {
-            readButton.textContent = "unread";
+            readButton.textContent = "not read";
             readButton.style.backgroundColor = "white";
         }
         // Event listener
         readButton.addEventListener("click", function() {
-            console.log("click me!")
+           libraryBook[libraryBook.length -1].read = !libraryBook[libraryBook.length -1].read;
+            toggleStatus()
         })
+
+        // Book.prototype.readStatus = function() {
+        //     this.read = !this.read
+        // }
+
+        // toggle statis
+        function toggleStatus() {
+         if(libraryBook[libraryBook.length -1].read === true) {
+                readButton.textContent = "not read"
+                readButton.style.backgroundColor = "white"
+            } else if(libraryBook[libraryBook.length -1].read === false) {
+                readButton.textContent = "read"
+                readButton.style.backgroundColor = "green"
+            }
+        }
+
+
     // create delete button
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("delete-btn");
@@ -72,6 +89,7 @@ function addBookToLibrary() {
     const bookRead = document.getElementById("book-read").checked
     // The users input value
     const newBook = new Book(titleBook, authorBook, pageNumber, bookRead);
+    // libraryBook.push(newBook.readStatus())
     // Push the user input to the libraryBook
     libraryBook.push(newBook);
     console.log(libraryBook);

@@ -5,30 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+80s+Fade&family=Rubik+Vinyl&display=swap" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet"/>
 </head>
 <body>
     <div class="main-info">
-        <header>
+        <header class="library-header">
             <h1>Library</h1>
         </header>
         <div>
         <form id="form-container">
             <div class="input-container">
-                <label for="title">Title</label>
-                <input type="text" id="title" name="title" required/>
+                <label for="title">Book</label>
+                <input type="text" id="title" name="title" required placeholder="Book Title"/>
             </div>
         <div class="input-container">
             <label for="author">Author</label>
-            <input type="text" id="author" name="author" required/>
+            <input type="text" id="author" name="author" required placeholder="Author"/>
         </div>
         <div class="input-container">
             <label for="pages">Pages</label>
-            <input type="text" id="pages" name="pages" required/>
+            <input type="text" id="pages" name="pages" required placeholder="Pages"/>
         </div>
-        <label for="book-read">Book read</label>
+        <div class="alignment">
+        <label class="read" for="book-read">Did you read</label>
         <input type="checkbox" id="book-read" name="book-read"/>
         <button id="submit">submit</button>
+    </div>
         </form>
         <div id="book-container">
             <div class="div-one">
