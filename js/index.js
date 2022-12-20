@@ -39,7 +39,7 @@ function displayBook() {
     // if condition of red or unread book
         if(libraryBook[libraryBook.length -1].read === true) {
             readButton.textContent = "read";
-            readButton.style.backgroundColor = "green";
+            readButton.style.backgroundColor = "blue gray";
         } else if(libraryBook[libraryBook.length -1].read === false) {
             readButton.textContent = "not read";
             readButton.style.backgroundColor = "white";
@@ -61,7 +61,7 @@ function displayBook() {
                 readButton.style.backgroundColor = "white"
             } else if(libraryBook[libraryBook.length -1].read === false) {
                 readButton.textContent = "read"
-                readButton.style.backgroundColor = "green"
+                readButton.style.backgroundColor = "blue gray"
             }
         }
 
